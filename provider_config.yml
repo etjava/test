@@ -1,0 +1,78 @@
+spring: 
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 1007
+  context-path: /
+  
+# 数据源配置
+spring:
+  profiles: dev
+  application: 
+    name: user-provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.199.108:3306/db_springcloud
+    username: root
+    password: Karen@1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+     
+eureka:
+  instance:
+    hostname: localhost  #eureka客户端主机实例名称
+    appname: user-provider  #客户端服务名
+    instance-id: user-provider:1007 #客户端实例名称
+    prefer-ip-address: true #显示IP
+  client: 
+    service-url: 
+      defaultZone: http://localhost:2004/eureka   #把服务注册到eureka注册中心
+       
+info: 
+   groupId: $project.groupId$
+   artifactId: $project.artifactId$
+   version: $project.version$
+   负责人: Jerru·T
+   联系电话: 123456
+---
+server:
+  port: 1007
+  context-path: /
+  
+# 数据源配置
+spring:
+  profiles: test
+  application: 
+    name: user-provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.199.108:3306/db_springcloud2
+    username: root
+    password: Karen@1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+     
+eureka:
+  instance:
+    hostname: localhost  #eureka客户端主机实例名称
+    appname: user-provider  #客户端服务名
+    instance-id: user-provider:1007 #客户端实例名称
+    prefer-ip-address: true #显示IP
+  client: 
+    service-url: 
+      defaultZone: http://localhost:2004/eureka   #把服务注册到eureka注册中心
+       
+info: 
+   groupId: $project.groupId$
+   artifactId: $project.artifactId$
+   version: $project.version$
+   负责人: 张三2
+   联系电话: 222222
