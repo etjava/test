@@ -5,8 +5,8 @@ spring:
 ---
 spring:
   profiles: dev
-name: bbbdev
+name: bbb111dev
 ---
 spring:
   profiles: test
-name: bbbest
+name: bbb111test
