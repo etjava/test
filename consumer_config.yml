@@ -2,33 +2,49 @@ spring:
   profiles:
     active:
     - dev
-server: 
+---
+server:
   port: 80
   context-path: /
+  
+# 数据源配置
 spring:
   profiles: dev
   application: 
     name: user-consumer80
-
-eureka: 
+  
+     
+eureka:
   client: 
-  	#false 由于注册中心的职责就是维护服务实例，它并不需要去检索服务，所以也设置为false
-    register-with-eureka: false 
     service-url: 
-      defaultZone: http://localhost:2004/eureka/
+      defaultZone: http://localhost:2004/eureka   #把服务注册到eureka注册中心
+       
+info: 
+   groupId: $project.groupId$
+   artifactId: $project.artifactId$
+   version: $project.version$
+   负责人: Jerru·T
+   联系电话: 123456
 ---
-server: 
-  port: 80
+server:
+  port: 81
   context-path: /
   
+# 数据源配置
 spring:
   profiles: test
   application: 
-    name: user-consumer80
+    name: user-consumer81
   
-eureka: 
+     
+eureka:
   client: 
-  	#false 由于注册中心的职责就是维护服务实例，它并不需要去检索服务，所以也设置为false
-    register-with-eureka: false 
     service-url: 
-      defaultZone: http://localhost:2004/eureka/
+      defaultZone: http://localhost:2004/eureka   #把服务注册到eureka注册中心
+       
+info: 
+   groupId: $project.groupId$
+   artifactId: $project.artifactId$
+   version: $project.version$
+   负责人: 张三2
+   联系电话: 222222
